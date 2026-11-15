@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6dce5"><title>Для Вилории ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+:root{--rose:#b65d79;--ink:#4c303a;--paper:#fff9f7;--pink:#f6dce5;--muted:#9c7582}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 10% 10%,#fff5f7 0,transparent 32%),linear-gradient(145deg,#f7e4e9,#f2d3dd 55%,#f9ecee);color:var(--ink);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden}
+body:before{content:'♡';position:fixed;right:-25px;top:5vh;font:300px/1 'Playfair Display';color:#fff8;pointer-events:none;transform:rotate(18deg)}
+.wrap{width:min(760px,100%);margin:auto;padding:22px 17px 60px;position:relative}
+
+/* Экран приветствия */
+.hero{background:linear-gradient(160deg,#fffaf8ed,#fff4f4e8);border:1px solid #fff;box-shadow:0 22px 70px #9d5e741e;border-radius:28px;padding:50px 22px 40px;text-align:center;position:relative;overflow:hidden;margin-top:20px}
+.hero:before,.hero:after{content:'✦';position:absolute;color:#d7a4b3;font-size:22px}.hero:before{top:22px;left:22px}.hero:after{right:24px;bottom:24px}
+.kicker{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#b27b8c}
+h1{font:600 clamp(42px,10vw,72px)/.98 'Playfair Display',serif;margin:15px 0 9px;color:#87465e}h1 em{font-weight:500;color:#c17e94}
+.sub{font:italic 18px 'Playfair Display',serif;color:#9a6677;margin:12px 0 20px}.hero p{max-width:490px;margin:0 auto;color:#775965;font-size:14px;line-height:1.7}
+
+/* Кнопка-сердечко */
+.heartbtn{display:flex;flex-direction:column;align-items:center;justify-content:center;width:120px;height:120px;border-radius:50%;border:2px solid #fff;background:linear-gradient(135deg, #f7d5de, #b65d79);color:white;font:600 14px 'DM Sans';letter-spacing:.06em;box-shadow:0 10px 30px #b65d7950;margin:30px auto 10px;cursor:pointer;transition:.3s; animation: pulse 2s infinite;}
+.heartbtn span{font-size:40px;margin-bottom:5px;text-shadow:0 2px 5px rgba(0,0,0,0.2)}
+.heartbtn:active{transform:scale(.95)}
+@keyframes pulse { 0% { transform: scale(1); box-shadow:0 0 0 0 #b65d7950; } 50% { transform: scale(1.05); box-shadow:0 0 0 15px #b65d7900; } 100% { transform: scale(1); box-shadow:0 0 0 0 #b65d7900; } }
+
+#inside{display:none;animation:rise 1s ease both}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.section{margin:30px 0}.section-head{text-align:center;margin-bottom:16px}.eyebrow{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#b27b8c}.section h2{font:600 31px 'Playfair Display';color:#87465e;margin:7px 0}
+
+/* Галерея */
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.photo{background:#fff;padding:7px 7px 23px;border-radius:8px;box-shadow:0 10px 28px #74415420;transform:rotate(var(--rot));}.photo img{width:100%;height:270px;object-fit:cover;display:block;border-radius:4px}.photo:nth-child(2n) img{object-position:center 35%}.photo small{display:block;text-align:center;color:#987281;font:italic 13px 'Playfair Display';padding-top:8px}
+
+/* Тосты */
+.toast-list{display:grid;gap:12px}.toast{border:1px solid #efd7df;border-radius:16px;background:#fffdfb;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.02)}.toast button{width:100%;border:0;background:transparent;text-align:left;padding:16px 17px;color:#87465e;display:flex;align-items:center;justify-content:space-between;font:600 16px 'Playfair Display';cursor:pointer}.toast button span:last-child{font:18px 'DM Sans';color:#c28a9c}.toast p{display:none;margin:0;padding:0 17px 18px;color:#72535f;font-size:14px;line-height:1.75}.toast.open p{display:block;animation:rise .25s ease}
+
+/* Подпись и музыка */
+.signature{text-align:center;padding:30px 10px 12px}.signature .script{font:italic 22px 'Playfair Display';color:#9a5b72;line-height:1.5}.signature strong{display:block;font:600 27px 'Playfair Display';color:#87465e;margin-top:8px}.signature .tiny{font-size:12px;color:#987281;margin-top:13px;letter-spacing:.06em}
+.music{display:flex;gap:12px;align-items:center;justify-content:center;background:#fff9f6;border:1px solid #fff;border-radius:18px;padding:15px;margin-top:18px;box-shadow:0 5px 15px rgba(0,0,0,0.02)}.music button{border:0;background:#a95070;color:white;border-radius:50%;width:42px;height:42px;font-size:16px;cursor:pointer;flex:none}.music b{display:block;font:600 15px 'Playfair Display';color:#87465e}.music small{color:#987281;font-size:11px}
+.footer{text-align:center;color:#aa7c8b;font-size:10px;letter-spacing:.2em;margin-top:30px}
+@media(max-width:480px){.wrap{padding:14px 12px 42px}.hero{padding:40px 16px 30px}.photo img{height:225px}.gallery{gap:9px}.section{margin:25px 0}}
+</style></head>
+<body><main class="wrap">
+
+<!-- ЭКРАН 1: КНОПКА -->
+<section class="hero" id="cover">
+    <div class="kicker">for my favourite girl</div>
+    <h1>Happy<br><em>Birthday</em></h1>
+    <div class="sub">Вилория, это всё — тебе ♡</div>
+    <p>Есть люди, которые становятся родными не по крови, а по душе. Сегодня мой самый любимый повод напомнить тебе, как сильно я тебя люблю.</p>
+    <button class="heartbtn" id="open">
+        <span>🤍</span>
+        Открыть
+    </button>
+</section>
+
+<!-- ЭКРАН 2: КОНТЕНТ -->
+<div id="inside">
+    <section class="section">
+        <div class="section-head">
+            <div class="eyebrow">little moments, big love</div>
+            <h2>Ты — моя любимая история</h2>
+        </div>
+        <div class="gallery">
+            <figure class="photo" style="--rot:-1.4deg"><img src="1.jpg" alt="Фото"><small>ты и твой свет ♡</small></figure>
+            <figure class="photo" style="--rot:1.2deg"><img src="2.jpg" alt="Фото"><small>моя прекрасная</small></figure>
+            <figure class="photo" style="--rot:1.1deg"><img src="3.jpg" alt="Фото"><small>та самая улыбка</small></figure>
+            <figure class="photo" style="--rot:-1.2deg"><img src="4.jpg" alt="Фото"><small>и ещё миллион воспоминаний</small></figure>
+            <figure class="photo" style="--rot:1.4deg"><img src="5.jpg" alt="Фото"><small>самая стильная</small></figure>
+            <figure class="photo" style="--rot:-1.1deg"><img src="6.jpg" alt="Фото"><small>моя родная</small></figure>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-head">
+            <div class="eyebrow">six little toasts</div>
+            <h2>Поднимем бокалы за нас</h2>
+        </div>
+        <div class="toast-list">
+            <article class="toast"><button><span>01 · За родство душ</span><span>＋</span></button><p>Вилория, дорогая, я поднимаю этот бокал за то, что мы не просто подруги. Мы — родные люди. Я смотрю на тебя и понимаю: мы связаны чем-то большим, чем просто годами дружбы. Это какое-то космическое родство душ. За то, чтобы мы всегда чувствовали друг друга без слов, за нашу невидимую нить, которую невозможно порвать!</p></article>
+            <article class="toast"><button><span>02 · За твою уникальность</span><span>＋</span></button><p>Вилория, ты — единственная в своем роде. Я знаю тебя как облупленную, я знаю все твои мысли и мечты, и я хочу выпить за то, чтобы ты никогда не вздумала меняться ради кого-то. Будь такой же яркой, сумасшедшей и настоящей. За твою неповторимость, которая делает мою жизнь богаче!</p></article>
+            <article class="toast"><button><span>03 · За поддержку в самые темные дни</span><span>＋</span></button><p>Этот тост — за плечо, которое всегда рядом. Вилория, мы прошли с тобой огонь и воду (и медные трубы!). Я пью за то, чтобы в твоей жизни было как можно меньше поводов для слез, но знай: если что — я всегда примчусь, даже на край света. За нашу женскую силу, которая удваивается, когда мы вместе!</p></article>
+            <article class="toast"><button><span>04 · За смех сквозь слёзы</span><span>＋</span></button><p>Я хочу выпить за наш смех! За те моменты, когда мы смеемся так, что болят животы, а окружающие нас не понимают. Вилория, пусть в твоей жизни будет больше поводов для этого искреннего, заливистого смеха. Пусть юмор никогда не покидает нас, даже когда грустно. За то, чтобы мы всегда были друг для друга лучшим лекарством!</p></article>
+            <article class="toast"><button><span>05 · За мечты и их исполнение</span><span>＋</span></button><p>Вилория, я знаю твои самые сокровенные мечты, я знаю, о чем ты шепчешь звездам. И я пью за то, чтобы каждая из них сбылась! Ты заслуживаешь всего самого лучшего, потому что твое сердце — золотое. Пусть Вселенная услышит нас сейчас и исполнит твои желания. За твои крылья, которые обязательно расправятся!</p></article>
+            <article class="toast"><button><span>06 · За наше будущее</span><span>＋</span></button><p>И последний, самый важный тост. Я пью за нашу старость. За то, чтобы через много-много лет мы сидели с тобой на одной лавочке, пили чай (или что покрепче) и вспоминали всё это время. Вилория, спасибо тебе за то, что ты есть. За то, что ты моя родная, моя любимая, моя сестра по духу. Будь счастлива, и знай, что я всегда рядом!</p></article>
+        </div>
+    </section>
+
+    <!-- Музыка -->
+    <div class="note" style="background:transparent; border:none; box-shadow:none; padding:0;">
+        <div class="eyebrow" style="text-align:center; margin-bottom:10px;">press play, my love</div>
+        <div class="music">
+            <button id="play" aria-label="Воспроизвести">▶</button>
+            <div>
+                <b>Cupid (Twin Version)</b>
+                <small>FIFTY FIFTY · наш трек</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Финал -->
+    <div class="signature">
+        <div class="script">С самыми лучшими пожеланиями<br>от твоей единственной,</div>
+        <strong>Твоя Ай-Суу ♡</strong>
+        <div class="tiny">Вилория, я тебя обожаю!</div>
+    </div>
+    <div class="footer">MADE WITH LOVE · JUST FOR YOU</div>
+</div>
+
+<!-- Твой аудиофайл -->
+<audio id="song" preload="auto" src="music.m4a"></audio>
+</main>
+
+<script>
+const openBtn=document.getElementById('open'),inside=document.getElementById('inside'),cover=document.getElementById('cover'),audio=document.getElementById('song'),play=document.getElementById('play');
+
+// При нажатии на кнопку
+openBtn.addEventListener('click',()=>{
+    inside.style.display='block';
+    cover.style.display='none';
+    window.scrollTo({top:0,behavior:'smooth'});
+    // Включаем музыку
+    audio.play().then(()=>play.textContent='Ⅱ').catch(()=>play.textContent='▶');
+});
+
+// Кнопка плей/пауза
+play.addEventListener('click',()=>{
+    if(audio.paused){
+        audio.play().then(()=>play.textContent='Ⅱ').catch(()=>{});
+    } else {
+        audio.pause();
+        play.textContent='▶';
+    }
+});
+
+// Раскрытие тостов
+document.querySelectorAll('.toast button').forEach(btn=>btn.addEventListener('click',()=>{
+    const card=btn.closest('.toast');
+    card.classList.toggle('open');
+    btn.querySelector('span:last-child').textContent=card.classList.contains('open')?'−':'＋';
+}));
+</script>
+</body></html>
